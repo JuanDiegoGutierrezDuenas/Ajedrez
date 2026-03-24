@@ -27,3 +27,4 @@ public abstract class Pieza {
 
     public abstract boolean validarMovimiento(int nuevoX, int nuevoY, Pieza[][] tablero);
 }
+
