@@ -48,6 +48,13 @@ public class Main {
                     System.out.println("Saliendo del juego...");
                     break;
 
+                    
+         case 5 :
+    System.out.println("5. Mostrar historial de movimientos");
+    partida.getHistorial().mostrarHistorial();
+    break;
+
+
                 default:
                     System.out.println("Opción inválida.");
             }
