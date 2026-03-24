@@ -7,7 +7,7 @@ public class Partida {
 
     public Partida() {
         this.tablero = new Tablero();
-        this.turnoBlanco = true; // Empiezan blancas
+        this.turnoBlanco = true; 
         this.estado = "jugando";
     }
 
