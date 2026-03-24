@@ -1,16 +1,16 @@
 import com.murcia.utils.*;
 
 // 1. Hacemos que Historial SEA una lista (Herencia)
-public class historial extends ColaEnlazada { 
+public class Historial extends ColaEnlazada { 
 
-    public historial() {
+    public Historial() {
         
     }
 
-    public void registrarJugada(movimiento m) {
-        // Usamos los métodos que ya vienen en la librería
-        this.encolar(m); 
-    }
+  public void registrarJugada(Movimiento m) {
+    this.encolar(m);
+}
+
 
     public void mostrarHistorial() {
         // 2. Al ser "hijo" de la lista, ahora SÍ puedes ver el head protegido
@@ -26,7 +26,7 @@ public class historial extends ColaEnlazada {
 
         while (actual != null) {
             // 3. Extraemos el dato usando los métodos que ya conocemos
-            movimiento mov = (movimiento) actual.getData();
+            Movimiento mov = (Movimiento) actual.getData();
             System.out.println(contador + ". " + mov);
 
             // 4. Saltamos al siguiente nodo
