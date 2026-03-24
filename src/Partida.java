@@ -22,5 +22,9 @@ public class Partida {
 
     public boolean verificarJaqueMate() {
         return false;
+        
+    }
+    public Tablero getTablero() {
+        return tablero;
     }
 }
