@@ -39,22 +39,21 @@ public class Tablero {
 }
 
 
-    // 👉 Aquí va moverPieza
-    public void moverPieza(int filaOrig, int colOrig, int filaDest, int colDest) {
-        Pieza pieza = casillas[filaOrig][colOrig];
-        if (pieza == null) {
-            System.out.println("No hay pieza en la posición de origen.");
-            return;
-        }
-        if (pieza.validarMovimiento(filaDest, colDest, casillas)) {
-            pieza.setPosicion(filaDest, colDest);
-            casillas[filaDest][colDest] = pieza;
-            casillas[filaOrig][colOrig] = null;
-            System.out.println("Movimiento realizado.");
-        } else {
-            System.out.println("Movimiento inválido para " + pieza.getTipo());
-        }
+   public void moverPieza(int filaOrig, int colOrig, int filaDest, int colDest) {
+    Pieza pieza = casillas[filaOrig][colOrig];
+    if (pieza == null) {
+        System.out.println("No hay pieza en la posición de origen.");
+        return;
     }
+    if (pieza.validarMovimiento(filaDest, colDest, casillas)) {
+        pieza.setPosicion(filaDest, colDest);
+        casillas[filaDest][colDest] = pieza;
+        casillas[filaOrig][colOrig] = null;
+        System.out.println("Movimiento realizado.");
+    } else {
+        System.out.println("Movimiento inválido para " + pieza.getTipo());
+    }
+}
 
     public void mostrarTablero() {
         for (int i = 0; i < 8; i++) {
