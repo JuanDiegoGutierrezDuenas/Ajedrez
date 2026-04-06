@@ -55,18 +55,38 @@ public class Tablero {
     }
 }
 
-    public void mostrarTablero() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (casillas[i][j] != null) {
-                    System.out.print("[" + casillas[i][j].getTipo().charAt(0) + "]");
-                } else {
-                    System.out.print("[ ]");
+ public void mostrarTablero() {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (casillas[i][j] != null) {
+                String tipo = casillas[i][j].getTipo();
+                String abreviatura;
+
+                switch (tipo) {
+                    case "Rey": abreviatura = "RY"; break;
+                    case "Reina": abreviatura = "RN"; break;
+                    case "Torre": abreviatura = "TO"; break;
+                    case "Alfil": abreviatura = "AL"; break;
+                    case "Caballo": abreviatura = "CA"; break;
+                    case "Peon": abreviatura = "P"; break;
+                    default: abreviatura = tipo.substring(0,2).toUpperCase();
                 }
+
+                // Diferenciar color
+                if (casillas[i][j].getColor().equals("negro")) {
+                    abreviatura = abreviatura.toLowerCase();
+                }
+
+                System.out.print("[" + abreviatura + "]");
+            } else {
+                System.out.print("[  ]");
             }
-            System.out.println();
         }
+        System.out.println();
     }
+}
+
+
 }
 
 
