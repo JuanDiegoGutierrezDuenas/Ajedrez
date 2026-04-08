@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import com.murcia.utils.Input;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,14 +15,12 @@ public class Main {
             System.out.println("2. Mostrar tablero");
             System.out.println("3. Cambiar turno");
             System.out.println("4. Salir");
-            System.out.print("Elige una opción: ");
             
-            int opcion = sc.nextInt();
+            int opcion = Input.nextInt("Elige una opción: ");
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Fila origen: ");
-                    int filaOrig = sc.nextInt();
+                    int filaOrig = Input.nextInt("Fila origen: ");
                     System.out.print("Columna origen: ");
                     int colOrig = sc.nextInt();
                     System.out.print("Fila destino: ");
