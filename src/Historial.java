@@ -1,36 +1,32 @@
 import com.murcia.utils.*;
 
-// 1. Hacemos que Historial SEA una lista (Herencia)
-public class Historial extends ColaEnlazada { 
+public class Historial {
+    private NodoMovimiento cabeza;
 
     public Historial() {
-        
+        cabeza = null;
     }
 
-  public void registrarJugada(Movimiento m) {
-    this.encolar(m);
-}
-
+    public void registrarJugada(Movimiento mov) {
+        NodoMovimiento nuevo = new NodoMovimiento(mov);
+        if (cabeza == null) {
+            cabeza = nuevo;
+        } else {
+            NodoMovimiento temp = cabeza;
+            while (temp.siguiente != null) {
+                temp = temp.siguiente;
+            }
+            temp.siguiente = nuevo;
+        }
+    }
 
     public void mostrarHistorial() {
-        // 2. Al ser "hijo" de la lista, ahora SÍ puedes ver el head protegido
-        Nodo actual = this.head; 
-
-        if (actual == null) {
-            System.out.println("El historial está vacío.");
-            return;
-        }
-
         System.out.println("--- HISTORIAL DE MOVIMIENTOS ---");
+        NodoMovimiento temp = cabeza;
         int contador = 1;
-
-        while (actual != null) {
-            // 3. Extraemos el dato usando los métodos que ya conocemos
-            Movimiento mov = (Movimiento) actual.getData();
-            System.out.println(contador + ". " + mov);
-
-            // 4. Saltamos al siguiente nodo
-            actual = actual.getNext();
+        while (temp != null) {
+            System.out.println(contador + ". " + temp.movimiento);
+            temp = temp.siguiente;
             contador++;
         }
     }
