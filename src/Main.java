@@ -1,23 +1,28 @@
-import com.murcia.utils.Input;
+import com.murcia.utils.*;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-     
         Partida partida = new Partida();
         partida.iniciarPartida();
 
         boolean salir = false;
+        
+        String[] opciones = {
+            "1. Mover pieza",
+            "2. Mostrar tablero",
+            "3. Cambiar turno",
+            "4. Salir",
+            "5. Mostrar historial"
+        };
+        
+        Menu menu = new Menu(opciones, 'H', "\n", " ---Menu---");
 
         while (!salir) {
-            System.out.println("\n--- MENÚ ---");
-            System.out.println("1. Mover pieza");
-            System.out.println("2. Mostrar tablero");
-            System.out.println("3. Cambiar turno");
-            System.out.println("4. Salir");
-            System.out.println("5. Mostrar historial");
-            int opcion = Input.nextInt("Elige una opción: ");
-
+            System.out.println(menu.toString());
+            
+            int opcion = Input.nextInt("Elige una opcion: ");
+ 
             switch (opcion) {
                 case 1:
                     int filaOrig = Input.nextInt("Fila origen: ");
