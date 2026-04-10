@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+     
         Partida partida = new Partida();
         partida.iniciarPartida();
 
@@ -15,24 +15,24 @@ public class Main {
             System.out.println("2. Mostrar tablero");
             System.out.println("3. Cambiar turno");
             System.out.println("4. Salir");
-            
+            System.out.println("5. Mostrar historial");
             int opcion = Input.nextInt("Elige una opción: ");
 
             switch (opcion) {
                 case 1:
                     int filaOrig = Input.nextInt("Fila origen: ");
-                    System.out.print("Columna origen: ");
-                    int colOrig = sc.nextInt();
-                    System.out.print("Fila destino: ");
-                    int filaDest = sc.nextInt();
-                    System.out.print("Columna destino: ");
-                    int colDest = sc.nextInt();
+                    int colOrig = Input.nextInt("Columna origen: ");
+                    int filaDest = Input.nextInt("Fila destino: ");
+                    int colDest = Input.nextInt("Columna destino: ");
 
                     partida.getTablero().moverPieza(filaOrig, colOrig, filaDest, colDest);
-                    partida.getTablero().mostrarTablero();
-                    partida.cambiarTurno();
-                    break;
-
+                    
+                    Pieza pieza = partida.getTablero().getPieza(filaDest, colDest);
+                   partida.registrarMovimiento(pieza, filaOrig, colOrig, filaDest, colDest);
+                
+                 partida.getTablero().mostrarTablero();
+                 partida.cambiarTurno();
+                 break;
                 case 2:
                     partida.getTablero().mostrarTablero();
                     break;
@@ -46,18 +46,16 @@ public class Main {
                     salir = true;
                     System.out.println("Saliendo del juego...");
                     break;
-
                     
-         case 5 :
-    System.out.println("5. Mostrar historial de movimientos");
-    partida.getHistorial().mostrarHistorial();
-    break;
+                case 5 :
+                partida.getHistorial().mostrarHistorial();
+                break;
 
 
                 default:
                     System.out.println("Opción inválida.");
             }
         }
-        sc.close();
+    
     }
 }
