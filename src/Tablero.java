@@ -5,6 +5,10 @@ public class Tablero {
         this.casillas = new Pieza[8][8];
         inicializarPiezas();
     }
+    
+    public Pieza getPieza(int fila, int col){
+        return casillas [fila ] [col];
+    }
 
     private void inicializarPiezas() {
     // Peones
